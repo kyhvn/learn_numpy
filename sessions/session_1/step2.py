@@ -27,8 +27,27 @@ array_2 = np.array([[1,2,3,4,5],[6,7,8,9,10]])
 print(array_2[1,2])
 #print 4
 print(array_2[0,3])
-#print 6
-print(array_2[1,0])
+#print 10 (Negative)
+print(array_2[1,-1])
 #------------3D array--------------
 
-#will upload in 15 Sep .... + step_2.md in Docs
+array_3 = np.array([[[1,2,3],[4,5,6]],[[7,8,9],[10,11,12]]])
+#print 6
+print(array_3[0,1,2])
+
+'''
+[0,1,2] --> [0,.,.]--> [1,2,3],[4,5,6] , [.,.,.],[.,.,.]
+[0,1,2] --> [.,1,.]--> [.,.,.],[4,5,6] , [.,.,.],[.,.,.]
+[0,1,2] --> [.,.,2]--> [.,.,.],[.,.,6] , [.,.,.],[.,.,.]
+
+`arr[0, 1, 2]` returns `6`.
+Think of the 3D array as boxes inside boxes.
+
+- **First number `0`** → opens the first big box.
+  Inside it we have: `[[1,2,3], [4,5,6]]`
+- **Second number `1`** → inside that box, picks the second small box.
+  Inside it we have: `[4, 5, 6]`
+- **Third number `2`** → inside that small box, picks the third number.
+  The numbers are `4`, `5`, `6`, so the third one is `6`.
+So step by step we go deeper: **big box → small box → number**.
+'''
